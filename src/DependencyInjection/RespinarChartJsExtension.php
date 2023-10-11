@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 /*
- * This file is part of [package name].
+ * This file is part of Contao Chart.js.
  *
- * (c) John Doe
+ * (c) Hamid Peywasti 2023 <hamid@respinar.com>
  *
- * @license LGPL-3.0-or-later
+ * @license MIT
  */
 
 namespace Respinar\ChartJsBundle\DependencyInjection;
@@ -21,7 +21,7 @@ class RespinarChartJsExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');
     }
 }
