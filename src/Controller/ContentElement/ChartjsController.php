@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Respinar\ChartJsBundle\Controller\ContentElement;
+namespace Respinar\ChartjsBundle\Controller\ContentElement;
 
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
@@ -12,10 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 #[AsContentElement(category: 'chartjs')]
-class ChartJsController extends AbstractContentElementController
+class ChartjsController extends AbstractContentElementController
 {
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
+
+
+
+        $GLOBALS['TL_BODY'][] = Template::generateScriptTag('bundles/respinarchartjs/js/chart.js', false, null);
+        $GLOBALS['TL_BODY'][] = Template::generateStyleTag('bundles/respinarchartjs/css/sty.css', false, null);
+
         return $template->getResponse();
     }
 }
