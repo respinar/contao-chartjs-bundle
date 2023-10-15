@@ -50,7 +50,7 @@
             "bin-links": false,
             "target-directory": "tools"
         },
-        "contao-manager-plugin": "Respinar\\ChartJsBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Respinar\\ChartjsBundle\\ContaoManager\\Plugin"
     },
     "scripts": {
         "all": [
