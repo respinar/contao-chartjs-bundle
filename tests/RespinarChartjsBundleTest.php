@@ -10,9 +10,9 @@ declare(strict_types=1);
  * @license LGPL-3.0-or-later
  */
 
-namespace Contao\ChartJsBundle\Tests;
+namespace Contao\ChartjsBundle\Tests;
 
-use Contao\ChartJsBundle\ContaoSkeletonBundle;
+use Contao\ChartjsBundle\ContaoSkeletonBundle;
 use PHPUnit\Framework\TestCase;
 
 class ContaoSkeletonBundleTest extends TestCase
@@ -21,6 +21,6 @@ class ContaoSkeletonBundleTest extends TestCase
     {
         $bundle = new ContaoSkeletonBundle();
 
-        $this->assertInstanceOf('Contao\ChartJsBundle\ContaoSkeletonBundle', $bundle);
+        $this->assertInstanceOf('Contao\ChartjsBundle\ContaoSkeletonBundle', $bundle);
     }
 }
