@@ -17,9 +17,11 @@ class ChartjsController extends AbstractContentElementController
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
 
+        $template->type = $model->chartjs_type;
+        $template->data = $model->chartjs_data;
 
 
-        $GLOBALS['TL_BODY'][] = Template::generateScriptTag('bundles/respinarchartjs/js/chart.umd.js', false, null);
+        $GLOBALS['TL_HEAD'][] = Template::generateScriptTag('bundles/respinarchartjs/js/chart.umd.js', false, null);
         $GLOBALS['TL_BODY'][] = Template::generateStyleTag('bundles/respinarchartjs/css/style.css', false, null);
 
         return $template->getResponse();
