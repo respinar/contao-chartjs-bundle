@@ -19,8 +19,8 @@ class ChartjsController extends AbstractContentElementController
 
 
 
-        $GLOBALS['TL_BODY'][] = Template::generateScriptTag('bundles/respinarchartjs/js/chart.js', false, null);
-        $GLOBALS['TL_BODY'][] = Template::generateStyleTag('bundles/respinarchartjs/css/sty.css', false, null);
+        $GLOBALS['TL_BODY'][] = Template::generateScriptTag('bundles/respinarchartjs/js/chart.umd.js', false, null);
+        $GLOBALS['TL_BODY'][] = Template::generateStyleTag('bundles/respinarchartjs/css/style.css', false, null);
 
         return $template->getResponse();
     }
