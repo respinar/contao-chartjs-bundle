@@ -8,3 +8,7 @@ services:
                                 # The best practice is to be explicit about your dependencies anyway.
         bind:
             #$projectDir: '%kernel.project_dir%'
+
+    Respinar\ChartjsBundle\:
+        resource: ../src/
+        exclude: ../src/{DependencyInjection,Model,Session}
