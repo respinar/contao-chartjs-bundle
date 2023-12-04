@@ -34,7 +34,16 @@
     "autoload-dev": {
         "psr-4": {
             "Respinar\\ChartjsBundle\\Tests\\": "tests/"
-        }
+        },
+        "classmap": [
+            "contao/"
+        ],
+        "exclude-from-classmap": [
+            "contao/config/",
+            "contao/dca/",
+            "contao/languages/",
+            "contao/templates/"
+        ]
     },
     "config": {
         "allow-plugins": {
