@@ -4,6 +4,6 @@ services:
         autowire: true
         autoconfigure: true
 
-    Respinar\ChartjsBundle\:
+    Respinar\ContaoChartjsBundle\:
         resource: ../src/
-        exclude: ../src/DependencyInjection
+        exclude: ../src/ContaoManager/
