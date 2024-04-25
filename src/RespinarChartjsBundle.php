@@ -10,23 +10,20 @@ declare(strict_types=1);
  * @license LGPL-3.0-or-later
  */
 
-namespace Respinar\ChartjsBundle;
+namespace Respinar\ContaoChartjsBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-class RespinarChartjsBundle extends Bundle
+class RespinarChartjsBundle extends AbstractBundle
 {
-    public function getPath(): string
+    public function loadExtension(
+        array $config, 
+        ContainerConfigurator $containerConfigurator, 
+        ContainerBuilder $containerBuilder,
+    ): void
     {
-        return \dirname(__DIR__);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function build(ContainerBuilder $container): void
-    {
-        parent::build($container);
+        $containerConfigurator->import('../config/services.yaml');
     }
 }
