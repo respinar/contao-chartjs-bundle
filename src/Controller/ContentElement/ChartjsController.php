@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Respinar\ChartjsBundle\Controller\ContentElement;
+namespace Respinar\ContaoChartjsBundle\Controller\ContentElement;
 
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
