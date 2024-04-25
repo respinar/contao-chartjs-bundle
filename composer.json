@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Respinar\\ChartjsBundle\\": "src/"
+            "Respinar\\ContaoChartjsBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Respinar\\ChartjsBundle\\Tests\\": "tests/"
+            "Respinar\\ContaoChartjsBundle\\Tests\\": "tests/"
         }
     },    
     "extra": {
@@ -42,7 +42,7 @@
             "bin-links": false,
             "target-directory": "tools"
         },
-        "contao-manager-plugin": "Respinar\\ChartjsBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Respinar\\ContaoChartjsBundle\\ContaoManager\\Plugin"
     },
     "scripts": {
         "all": [
