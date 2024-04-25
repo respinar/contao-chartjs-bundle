@@ -10,13 +10,13 @@ declare(strict_types=1);
  * @license LGPL-3.0-or-later
  */
 
-namespace Respinar\ChartjsBundle\ContaoManager;
+namespace Respinar\ContaoChartjsBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Respinar\ChartjsBundle\RespinarChartjsBundle;
+use Respinar\ContaoChartjsBundle\RespinarChartjsBundle;
 
 class Plugin implements BundlePluginInterface
 {
