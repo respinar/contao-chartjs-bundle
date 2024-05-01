@@ -16,14 +16,14 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Respinar\ContaoChartjsBundle\RespinarChartjsBundle;
+use Respinar\ContaoChartjsBundle\RespinarContaoChartjsBundle;
 
 class Plugin implements BundlePluginInterface
 {
     public function getBundles(ParserInterface $parser): array
     {
         return [
-            BundleConfig::create(RespinarChartjsBundle::class)
+            BundleConfig::create(RespinarContaoChartjsBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
