@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 /*
- * This file is part of [package name].
+ * This file is part of Contao Chart.js Bundle.
  *
- * (c) John Doe
+ * (c) Hamid Peywasti 2023-2024 <hamid@respinar.com>
  *
- * @license LGPL-3.0-or-later
+ * @license MIT
  */
 
 namespace Respinar\ContaoChartjsBundle\ContaoManager;
