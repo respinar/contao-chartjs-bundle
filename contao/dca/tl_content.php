@@ -14,9 +14,9 @@ use Contao\Controller;
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['chartjs'] = '
     {type_legend},type,headline;
-    {chartjs_legend},chartjs_type;
-    {data_legend},chartjs_data;
-	{template_legend},chartjs_template,customTpl;
+    {chartjs_legend},chartjs_type,chartjs_options;
+    {chartjs_data_legend},chartjs_table;	
+	{template_legend},customTpl;
 	{protected_legend:hide},protected;
 	{expert_legend:hide},guests,cssID;
     {invisible_legend:hide},invisible,start,stop;';
