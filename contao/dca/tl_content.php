@@ -25,41 +25,48 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['chartjs'] = '
 /**
  * Add fields to tl_content
  */
-$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_type'] = array
-(
+$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_type'] = [
     'exclude'          => true,
     'inputType'        => 'select',
-    'options'          => array('line','bar','bubble','pie','polarArea','radar','scatter','mixed'),
+    'options'          => ['line','bar','radar','pie','doughnut','polarArea'],
     'reference'        => &$GLOBALS['TL_LANG']['CTE'],
-    'eval'             => array('chosen'=>true, 'tl_class'=>'w50'),
+    'eval'             => ['chosen'=>true, 'tl_class'=>'w50'],
     'sql'              => "varchar(255) NOT NULL default ''"
-
-);
-$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_config'] = array
-(
-	'exclude'          => true,
-	'inputType'        => 'select',
-	//'foreignKey'       => 'tl_chartjs_config.title',
-	'eval'             => array('multiple'=>false, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
-	'sql'			   => "int(10) unsigned NOT NULL default 0",
-);
-$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_data'] = array
-(
+];
+$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_table'] = [
+	'inputType'        => 'tableWizard',
+	'eval'             => array('multiple'=>true, 'doNotSaveEmpty'=>true, 'style'=>'width:142px;height:66px'),			
+	'sql'              => "mediumblob NULL"
+];
+$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_options'] = [
     'exclude'                 => true,
     'search'                  => true,
     'inputType'               => 'textarea',
-    'eval'                    => array('style'=>'height:120px', 'preserveTags'=>true, 'class'=>'monospace', 'rte'=>'ace|html', 'tl_class'=>'clr'),
+    'eval'                    => ['style'=>'height:120px', 'preserveTags'=>true, 'class'=>'monospace', 'rte'=>'ace|json', 'tl_class'=>'clr'],
     'sql'                     => "text NULL"
+];
 
-);
-$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_template'] = array
-(
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_labels'] = [
+    'inputType'        => 'listWizard',
+	'eval'             => ['multiple'=>true, 'tl_class'=>'clr'],
+	'sql'              => "blob NULL"
+];
+$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_config'] = [
+	'exclude'          => true,
+	'inputType'        => 'select',
+	//'foreignKey'       => 'tl_chartjs_config.title',
+	'eval'             => ['multiple'=>false, 'includeBlankOption'=>true, 'tl_class'=>'w50'],
+	'sql'			   => "int(10) unsigned NOT NULL default 0",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_template'] = [
 	'exclude'          => true,
 	'inputType'        => 'select',
 	'options_callback' => static function ()
 	{
 		return Controller::getTemplateGroup('chartjs_');
 	},
-	'eval'			   => array('tl_class'=>'w50 clr'),
+	'eval'			   => ['tl_class'=>'w50 clr'],
 	'sql'			   => "varchar(64) NOT NULL default ''",
-);
+];
