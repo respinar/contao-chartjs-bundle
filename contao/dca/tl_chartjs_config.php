@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of Contao Chart.js Bundle.
  *
- * (c) Hamid Peywasti 2023 <hamid@respinar.com>
+ * (c) Hamid Peywasti 2023-2024 <hamid@respinar.com>
  *
  * @license MIT
  */
@@ -17,72 +17,72 @@ use Contao\DC_Table;
 /**
  * Table tl_chartjs_config
  */
-$GLOBALS['TL_DCA']['tl_chartjs_config'] = array(
+$GLOBALS['TL_DCA']['tl_chartjs_config'] = [
 
 	// Config
-	'config' => array(
+	'config' => [
 		'dataContainer'               => DC_Table::class,
 		'enableVersioning'            => true,
-		'sql' => array(
-			'keys' => array(
+		'sql' => [
+			'keys' => [
 				'id' => 'primary'
-			)
-		)
-	),
+			]
+		]
+	],
 
 	// List
-	'list' => array(
-		'sorting' => array(
+	'list' => [
+		'sorting' => [
 			'mode'                    => 1,
-			'fields'                  => array('title'),
+			'fields'                  => ['title'],
 			'flag'                    => 1
-		),
-		'label' => array(
-			'fields'                  => array('title'),
+		],
+		'label' => [
+			'fields'                  => ['title'],
 			'format'                  => '%s'
-		),
-		'global_operations' => array(
-			'all' => array(
+		],
+		'global_operations' => [
+			'all' => [
 				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
 				'href'                => 'act=select',
 				'class'               => 'header_edit_all',
 				'attributes'          => 'onclick="Backend.getScrollOffset();" accesskey="e"'
-			)
-		),
-		'operations' => array(
-			'edit' => array(
+			]
+		],
+		'operations' => [
+			'edit' => [
 				'href'                => 'act=edit',
 				'icon'                => 'edit.svg'
-			),
-			'copy' => array(
+			],
+			'copy' => [
 				'href'                => 'act=copy',
 				'icon'                => 'copy.svg'
-			),
-			'delete' => array(
+			],
+			'delete' => [
 				'href'                => 'act=delete',
 				'icon'                => 'delete.svg',
 				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
-			),
-			'show' => array(
+			],
+			'show' => [
 				'href'                => 'act=show',
 				'icon'                => 'show.svg'
-			)
-		)
-	),
+			]
+		]
+	],
 
 	// Select
-	'select' => array(
-		'buttons_callback' => array()
-	),
+	'select' => [
+		'buttons_callback' => []
+	],
 
 	// Edit
-	'edit' => array(
-		'buttons_callback' => array()
-	),
+	'edit' => [
+		'buttons_callback' => []
+	],
 
 	// Palettes
-	'palettes' => array(
-		'__selector__'                => array('pager', 'ticker', 'adaptiveHeight', 'touchEnabled', 'controls', 'autoControls', 'auto'),
+	'palettes' => [
+		'__selector__'                => ['pager', 'ticker', 'adaptiveHeight', 'touchEnabled', 'controls', 'autoControls', 'auto'],
 		'default'                     => '
         {title_legend},title;
         {datadecimation_legend},decimation_enabled,decimation_algorithm,decimation_samples,decimation_threshold;
@@ -103,426 +103,428 @@ $GLOBALS['TL_DCA']['tl_chartjs_config'] = array(
         {title_legend},title_align,title_color,title_display,title_fullSize,title_position,title_font,title_padding,title_text;
         {tooltip_legend},enabled,external,mode,intersect,position,callbacks,itemSort,filter,backgroundColor,titleColor,titleFont,titleAlign,titleSpacing,titleMarginBottom,bodyColor,bodyFont,bodyAlign,bodySpacing,footerColor,footerFont,footerAlign,footerSpacing,footerMarginTop,padding,caretPadding,caretSize,cornerRadius,multiKeyBackground,displayColors,boxWidth,boxHeight,boxPadding,usePointStyle,borderColor,borderWidth,rtl,textDirection,xAlign,yAlign;
         '
-	),
+	],
 
 	// Subpalettes
-	'subpalettes' => array(
+	'subpalettes' => [
 		''                    => '',
-	),
+	],
 
 	// Fields
-	'fields' => array(
-		'id' => array(
+	'fields' => [
+		'id' => [
 			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
-		),
-		'tstamp' => array(
+		],
+		'tstamp' => [
 			'sql'                     => "int(10) unsigned NOT NULL default 0"
-		),
-		'title' => array(
+		],
+		'title' => [
 			'exclude'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
+			'eval'                    => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
 			'sql'                     => "varchar(255) NOT NULL default ''"
-		),
-		'mode' =>  array(
+		],
+		'mode' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'select',
 			'default'                 => 'horizontal',
-			'options'                 => array('horizontal', 'vertical', 'fade'),
-			'eval'                    => array('tl_class' => 'w50'),
+			'options'                 => ['horizontal', 'vertical', 'fade'],
+			'eval'                    => ['tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default 'horizontal'"
-		),
+		],
 
-		'speed' =>  array(
+		'speed' =>  [
 			'exclude'                 => true,
 			'default'                 => 500,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 500"
-		),
+		],
 
-		'slideMargin' =>  array(
+		'slideMargin' =>  [
 			'exclude'                 => true,
 			'default'                 => 0,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 0"
-		),
+		],
 
-		'startSlide' =>  array(
+		'startSlide' =>  [
 			'exclude'                 => true,
 			'default'                 => 0,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 0"
-		),
+		],
 
-		'randomStart' =>  array(
+		'randomStart' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'infiniteLoop' =>  array(
+		'infiniteLoop' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'hideControlOnEnd' =>  array(
+		'hideControlOnEnd' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'easing' =>  array(
+		'easing' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'select',
-			'options'                 => array('linear', 'swing', 'ease-in', 'ease-out', 'ease-in-out', 'cubic-bezier(n,n,n,n)'),
-			'eval'                    => array('chosen' => true, 'includeBlankOption' => true, 'tl_class' => 'w50'),
+			'options'                 => ['linear', 'swing', 'ease-in', 'ease-out', 'ease-in-out', 'cubic-bezier(n,n,n,n)'],
+			'eval'                    => ['chosen' => true, 'includeBlankOption' => true, 'tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
+		],
 
-		'captions' =>  array(
+		'captions' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'ticker' =>  array(
+		'ticker' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50 clr', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50 clr', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'tickerHover' =>  array(
+		'tickerHover' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
-		'adaptiveHeight' =>  array(
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
+		'adaptiveHeight' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50 clr m12', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
-		'adaptiveHeightSpeed' =>  array(
+			'eval'                    => ['tl_class' => 'w50 clr m12', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
+		'adaptiveHeightSpeed' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'text',
 			'default'                 => 500,
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 500"
-		),
+		],
 
-		'video' =>  array(
+		'video' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'responsive' =>  array(
-			'exclude'                 => true,
-			'default'                 => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
-
-		'useCSS' =>  array(
+		'responsive' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50 clr'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'preloadImages' =>  array(
+		'useCSS' =>  [
+			'exclude'                 => true,
+			'default'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => ['tl_class' => 'w50 clr'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
+
+		'preloadImages' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'select',
 			'default'                 => 'visible',
-			'options'                 => array('all', 'visible'),
-			'eval'                    => array('tl_class' => 'w50'),
+			'options'                 => ['all', 'visible'],
+			'eval'                    => ['tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default 'visible'"
-		),
+		],
 
-		'touchEnabled' =>  array(
+		'touchEnabled' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50 clr m12', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50 clr m12', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'swipeThreshold' =>  array(
+		'swipeThreshold' =>  [
 			'exclude'                 => true,
 			'default'                 => 50,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 50"
-		),
+		],
 
-		'oneToOneTouch' =>  array(
+		'oneToOneTouch' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'preventDefaultSwipeX' =>  array(
+		'preventDefaultSwipeX' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50 clr'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50 clr'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'preventDefaultSwipeY' =>  array(
+		'preventDefaultSwipeY' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
 		/* Pager */
-		'pager' =>  array(
+		'pager' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'pagerType' =>  array(
+		'pagerType' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'select',
 			'default'                 => 'full',
-			'options'                 => array('full', 'short'),
-			'eval'                    => array('tl_class' => 'w50 clr'),
+			'options'                 => ['full', 'short'],
+			'eval'                    => ['tl_class' => 'w50 clr'],
 			'sql'                     => "varchar(64) NOT NULL default 'full'"
-		),
+		],
 
-		'pagerShortSeparator' =>  array(
+		'pagerShortSeparator' =>  [
 			'exclude'                 => true,
 			'search'                  => true,
 			'default'                 => '/',
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength' => 64, 'tl_class' => 'w50'),
+			'eval'                    => ['maxlength' => 64, 'tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default '/'"
-		),
+		],
 
 		/* Controls */
-		'controls' =>  array(
+		'controls' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'nextText' =>  array(
+		'nextText' =>  [
 			'exclude'                 => true,
 			'search'                  => true,
 			'default'                 => 'Next',
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength' => 64, 'tl_class' => 'w50 clr'),
+			'eval'                    => ['maxlength' => 64, 'tl_class' => 'w50 clr'],
 			'sql'                     => "varchar(64) NOT NULL default 'Next'"
-		),
+		],
 
-		'prevText' =>  array(
+		'prevText' =>  [
 			'exclude'                 => true,
 			'search'                  => true,
 			'default'                 => 'Prev',
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength' => 64, 'tl_class' => 'w50'),
+			'eval'                    => ['maxlength' => 64, 'tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default 'Prev'"
-		),
+		],
 
-		'autoControls' =>  array(
+		'autoControls' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50 clr', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50 clr', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'startText' =>  array(
+		'startText' =>  [
 			'exclude'                 => true,
 			'default'                 => 'Start',
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength' => 64, 'tl_class' => 'w50 clr'),
+			'eval'                    => ['maxlength' => 64, 'tl_class' => 'w50 clr'],
 			'sql'                     => "varchar(64) NOT NULL default 'Start'"
-		),
+		],
 
-		'stopText' =>  array(
+		'stopText' =>  [
 			'exclude'                 => true,
 			'default'                 => 'Stop',
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength' => 64, 'tl_class' => 'w50'),
+			'eval'                    => ['maxlength' => 64, 'tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default 'Stop'"
-		),
+		],
 
-		'autoControlsCombine' =>  array(
+		'autoControlsCombine' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
 		/* Auto */
-		'auto' =>  array(
+		'auto' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50', 'submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50', 'submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'pause' =>  array(
+		'pause' =>  [
 			'exclude'                 => true,
 			'default'                 => 4000,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 4000"
-		),
+		],
 
-		'autoStart' =>  array(
+		'autoStart' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'autoDirection' =>  array(
+		'autoDirection' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'select',
 			'default'                 => 'next',
-			'options'                 => array('next', 'prev'),
-			'eval'                    => array('tl_class' => 'w50'),
+			'options'                 => ['next', 'prev'],
+			'eval'                    => ['tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
+		],
 
-		'autoStart' =>  array(
+		'autoStart' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'autoHover' =>  array(
+		'autoHover' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'autoDelay' =>  array(
+		'autoDelay' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 0"
-		),
+		],
 
 		/* Carousel */
-		'minSlides' =>  array(
+		'minSlides' =>  [
 			'exclude'                 => true,
 			'default'                 => 1,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 1"
-		),
+		],
 
-		'maxSlides' =>  array(
+		'maxSlides' =>  [
 			'exclude'                 => true,
 			'default'                 => 1,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 1"
-		),
+		],
 
-		'moveSlides' =>  array(
+		'moveSlides' =>  [
 			'exclude'                 => true,
 			'default'                 => 0,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 0"
-		),
-		'slideWidth' =>  array(
+		],
+		'slideWidth' =>  [
 			'exclude'                 => true,
 			'default'                 => 0,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp' => 'natural', 'tl_class' => 'w50'),
+			'eval'                    => ['rgxp' => 'natural', 'tl_class' => 'w50'],
 			'sql'                     => "smallint(5) unsigned NOT NULL default 0"
-		),
+		],
 
-		'thumbnail' => array(
+		'thumbnail' => [
 			'exclude'          => true,
 			'inputType'        => 'checkbox',
-			'eval'             => array('tl_class' => 'w50 m12'),
-			'sql'              => "char(1) COLLATE ascii_bin NOT NULL default ''"
-		),
-		'thumbnailSize' => array(
+			'eval'             => ['tl_class' => 'w50 m12'],
+			'sql'              => ['type' => 'boolean', 'default' => false]
+		],
+		'thumbnailSize' => [
 			'exclude'                 => true,
 			'inputType'               => 'imageSize',
 			'reference'               => &$GLOBALS['TL_LANG']['MSC'],
 			'options_callback' => function () {
-				return System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(BackendUser::getInstance());
+				return System::getContainer()
+					->get('contao.image.image_sizes')
+					->getOptionsForUser(BackendUser::getInstance());
 			},
-			'eval'                    => array('rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50 clr'),
+			'eval'                    => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50 clr'],
 			'sql'                     => "varchar(128) COLLATE ascii_bin NOT NULL default ''"
-		),
+		],
 
-		'keyboardEnabled' =>  array(
+		'keyboardEnabled' =>  [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
 
-		'ariaLive' =>  array(
-			'exclude'                 => true,
-			'default'                 => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
-		'ariaHidden' =>  array(
+		'ariaLive' =>  [
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50'),
-			'sql'                     => array('type' => 'boolean', 'default' => true)
-		),
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
+		'ariaHidden' =>  [
+			'exclude'                 => true,
+			'default'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => ['tl_class' => 'w50'],
+			'sql'                     => ['type' => 'boolean', 'default' => true]
+		],
 
-		'wrapperClass' =>  array(
+		'wrapperClass' =>  [
 			'exclude'                 => true,
 			'default'                 => 'bx-wrapper',
 			'inputType'               => 'text',
-			'eval'                    => array('tl_class' => 'w50'),
+			'eval'                    => ['tl_class' => 'w50'],
 			'sql'                     => "varchar(64) NOT NULL default 'bx-wrapper'"
-		),
+		],
 
-		'protected' => array(
+		'protected' => [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('submitOnChange' => true),
-			'sql'                     => array('type' => 'boolean', 'default' => false)
-		),
-		'groups' => array(
+			'eval'                    => ['submitOnChange' => true],
+			'sql'                     => ['type' => 'boolean', 'default' => false]
+		],
+		'groups' => [
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
 			'foreignKey'              => 'tl_member_group.name',
-			'eval'                    => array('mandatory' => true, 'multiple' => true),
+			'eval'                    => ['mandatory' => true, 'multiple' => true],
 			'sql'                     => "blob NULL",
-			'relation'                => array('type' => 'hasMany', 'load' => 'lazy')
-		)
-	)
-);
+			'relation'                => ['type' => 'hasMany', 'load' => 'lazy']
+		]
+	]
+];
