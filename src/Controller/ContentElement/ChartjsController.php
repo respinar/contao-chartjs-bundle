@@ -25,8 +25,37 @@ class ChartjsController extends AbstractContentElementController
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
 
-        $template->type = $model->chartjs_type;
-        $template->data = $model->chartjs_data;
+        // Deserialize the headline field
+        $headline = StringUtil::deserialize($model->headline, true);
+
+        // Pass both the headline text and level (hl) to the template
+        $template->set('headline', $headline['value'] ?? '');
+        $template->set('hl', $headline['unit'] ?? 'h2');
+
+        $template->set('type', $model->chartjs_type ?? 'bar');
+        $template->set('options', $model->chartjs_options ?? '{}');
+
+        $chart_table = StringUtil::deserialize($model->chartjs_table);  
+
+        $chart_labels =  array_shift($chart_table);
+        
+        array_shift($chart_labels);
+
+        $template->set('labels', json_encode($chart_labels));
+
+        $datasets = [];
+        foreach( $chart_table as $chart_data ) {
+
+            $data_label = array_shift($chart_data);
+
+            $datasets[] = [
+                'label' => $data_label,
+                'data' => $chart_data
+            ];
+        };
+
+        $template->set( 'datasets', json_encode($datasets));
+
 
         $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarcontaochartjs/js/chart.umd.js|static';
 
