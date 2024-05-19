@@ -8,6 +8,27 @@
       <trans-unit id="CTE.chart_js.1">
         <source>Add a chart</source>
       </trans-unit>
+      <trans-unit id="CTE.line">
+        <source>Line Chart</source>
+      </trans-unit>
+      <trans-unit id="CTE.bar">
+        <source>Bar Chart</source>
+      </trans-unit>
+      <trans-unit id="CTE.radar">
+        <source>Radar Chart</source>
+      </trans-unit>
+      <trans-unit id="CTE.pie">
+        <source>Pie Chart</source>
+      </trans-unit>
+      <trans-unit id="CTE.doughnut">
+        <source>Doughnut Chart</source>
+      </trans-unit>
+      <trans-unit id="CTE.polarArea">
+        <source>Polar Area Chart</source>
+      </trans-unit>
+      <trans-unit id="CTE.scatter">
+        <source>Scatter Chart</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
