@@ -26,14 +26,7 @@ class ChartjsController extends AbstractContentElementController
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
 
-        // Deserialize the headline field
-        $headline = StringUtil::deserialize($model->headline, true);
-
-        // Pass both the headline text and level (hl) to the template
-        $template->set('headline', $headline['value'] ?? '');
-        $template->set('hl', $headline['unit'] ?? 'h2');
-
-        $template->set('type', $model->chartjs_type ?? 'bar');
+        $template->set('chartType', $model->chartjs_type ?? 'bar');
         $template->set('options', $model->chartjs_options ?? '{}');
 
         $chart_table = StringUtil::deserialize($model->chartjs_table);  
