@@ -1,26 +1,20 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
 {% block content %}
-  <div class="content-chartjs">
-
-    {% if headline %}
-      <{{ hl }} class="faq-title">{{ headline }}</{{ hl }}>            
-    {% endif %}
-
-    <div class="chartjs">
-      <canvas id="myChart" class="twig"></canvas>
-    </div>
-    
-  </div>
-
-<script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: '{{ type|raw }}',
-    options: {{ options|raw }},
-    data: {
-       labels: {{ labels|raw }},
-       datasets: {{ datasets|raw }}
-    }    
-  });
-</script>
+  {% if as_editor_view %}
+    {% block editor_view %}<p>ChartJS</p>{% endblock %}
+  {% else %}
+    <canvas id="myChart"></canvas>
+    <script>
+      const ctx = document.getElementById('myChart');
+      new Chart(ctx, {
+        type: '{{ chartType|raw }}',
+        options: {{ options|raw }},
+        data: {
+          labels: {{ labels|raw }},
+          datasets: {{ datasets|raw }}
+        }
+      });
+    </script>
+  {% endif %}
 {% endblock %}
