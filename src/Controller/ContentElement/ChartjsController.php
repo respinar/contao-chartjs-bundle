@@ -23,6 +23,9 @@ use Symfony\Component\HttpFoundation\Response;
 #[AsContentElement(category: 'miscellaneous')]
 class ChartjsController extends AbstractContentElementController
 {
+
+    public const TYPE = 'chartjs';
+
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
 
