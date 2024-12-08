@@ -2,7 +2,7 @@
 
 {% block content %}
   {% if as_editor_view %}
-    {% block editor_view %}<p>ChartJS</p>{% endblock %}
+    {% block editor_view %}<p>ChartJS - {{ chartType }}</p>{% endblock %}
   {% else %}
     <canvas id="myChart"></canvas>
     <script>
