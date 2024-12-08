@@ -32,10 +32,10 @@ class ChartjsController extends AbstractContentElementController
         $template->set('chartType', $model->chartjs_type ?? 'bar');
         $template->set('options', $model->chartjs_options ?? '{}');
 
-        $chart_table = StringUtil::deserialize($model->chartjs_table);  
+        $chart_table = StringUtil::deserialize($model->chartjs_table);
 
         $chart_labels =  array_shift($chart_table);
-        
+
         array_shift($chart_labels);
 
         $template->set('labels', json_encode($chart_labels));
