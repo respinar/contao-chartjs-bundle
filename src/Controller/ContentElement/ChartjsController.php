@@ -53,6 +53,7 @@ class ChartjsController extends AbstractContentElementController
 
         $template->set( 'datasets', json_encode($datasets));
 
+        $template->set('chartId', $model->chartjs_id);
 
         $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarcontaochartjs/js/chart.umd.js|static';
 
