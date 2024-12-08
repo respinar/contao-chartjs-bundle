@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 
 use Contao\Controller;
+use Contao\DataContainer;
+use Respinar\ContaoChartjsBundle\Controller\ContentElement\ChartjsController;
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['chartjs'] = '
     {type_legend},type,headline;
