@@ -33,6 +33,20 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_type'] = [
     'eval'             => ['chosen'=>true, 'tl_class'=>'w50'],
     'sql'              => "varchar(255) NOT NULL default ''"
 ];
+$GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_id'] = [
+	'exclude'          => true,
+    'inputType' 	   => 'text',
+	'eval'             => ['unique' => true],
+	'save_callback'    => [
+		function ($value, DataContainer $dc) {
+			if (empty($value) || !$dc->activeRecord) {
+				return 'chart-' . uniqid();
+			}
+			return $value;
+		},
+    ],
+	'sql'              => ['type' => 'string', 'length' => 255, 'default' => ''],
+];
 $GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_table'] = [
 	'inputType'        => 'tableWizard',
 	'eval'             => array('multiple'=>true, 'doNotSaveEmpty'=>true, 'style'=>'width:142px;height:66px'),			
