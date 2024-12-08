@@ -2,11 +2,11 @@
 <xliff version="1.1">
   <file datatype="php" original="languages/en/default.php" source-language="en">
     <body>
-      <trans-unit id="CTE.chart_js.0">
+      <trans-unit id="CTE.chartjs.0">
         <source>ChartJs</source>
       </trans-unit>
-      <trans-unit id="CTE.chart_js.1">
-        <source>Add a chart</source>
+      <trans-unit id="CTE.chartjs.1">
+        <source>Add a simple HTML5 chart to the page</source>
       </trans-unit>
       <trans-unit id="CTE.line">
         <source>Line Chart</source>
