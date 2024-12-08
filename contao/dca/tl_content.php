@@ -14,10 +14,10 @@ use Contao\Controller;
 use Contao\DataContainer;
 use Respinar\ContaoChartjsBundle\Controller\ContentElement\ChartjsController;
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['chartjs'] = '
+$GLOBALS['TL_DCA']['tl_content']['palettes'][ChartjsController::TYPE] = '
     {type_legend},type,headline;
     {chartjs_legend},chartjs_type,chartjs_options;
-    {chartjs_data_legend},chartjs_table;	
+    {chartjs_data_legend},chartjs_table;
 	{template_legend},customTpl;
 	{protected_legend:hide},protected;
 	{expert_legend:hide},guests,cssID;
@@ -51,7 +51,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_id'] = [
 ];
 $GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_table'] = [
 	'inputType'        => 'tableWizard',
-	'eval'             => array('multiple'=>true, 'doNotSaveEmpty'=>true, 'style'=>'width:142px;height:66px'),			
+	'eval'             => array('multiple'=>true, 'doNotSaveEmpty'=>true, 'style'=>'width:142px;height:66px'),
 	'sql'              => "mediumblob NULL"
 ];
 $GLOBALS['TL_DCA']['tl_content']['fields']['chartjs_options'] = [
