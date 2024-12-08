@@ -4,16 +4,17 @@
   {% if as_editor_view %}
     {% block editor_view %}<p>ChartJS - {{ chartType }}</p>{% endblock %}
   {% else %}
-    <canvas id="myChart"></canvas>
+    <canvas id="{{ chartId }}"></canvas>
     <script>
-      const ctx = document.getElementById('myChart');
-      new Chart(ctx, {
-        type: '{{ chartType|raw }}',
-        options: {{ options|raw }},
-        data: {
-          labels: {{ labels|raw }},
-          datasets: {{ datasets|raw }}
-        }
+      document.addEventListener('DOMContentLoaded', function() {
+        new Chart(document.getElementById('{{ chartId }}'), {
+          type: '{{ chartType|raw }}',
+          options: {{ options|raw }},
+          data: {
+            labels: {{ labels|raw }},
+            datasets: {{ datasets|raw }}
+          }
+        });
       });
     </script>
   {% endif %}
